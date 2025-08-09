@@ -1,0 +1,386 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Kompensacja mocy biernej — [Twoja Firma]</title>
+  <meta name="description" content="Kompensacja mocy biernej za pomocą baterii kondensatorów i kompensatorów SVG — poprawa współczynnika mocy, oszczędność energii i stabilizacja sieci." />
+  <meta name="theme-color" content="#f7fbff" />
+  <style>
+    :root{
+      --bg:#f7fbff;
+      --card:#ffffff;
+      --muted:#6b7280;
+      --accent:#2b7cff;
+      --accent-2:#00bfa6;
+      --glass: rgba(255,255,255,0.7);
+      --radius:14px;
+      --shadow: 0 6px 18px rgba(20,30,60,0.08);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background: linear-gradient(180deg, var(--bg), #ffffff 80%);
+      color:#0f172a;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      padding:32px;
+    }
+
+    .container{
+      max-width:1080px;
+      margin:0 auto;
+    }
+
+    header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      margin-bottom:28px;
+    }
+    .brand{
+      display:flex;
+      gap:12px;
+      align-items:center;
+    }
+    .logo {
+      width:52px;
+      height:52px;
+      border-radius:12px;
+      background: linear-gradient(135deg,var(--accent),var(--accent-2));
+      display:grid;
+      place-items:center;
+      color:white;
+      font-weight:700;
+      box-shadow: var(--shadow);
+      flex:0 0 52px;
+    }
+    h1{font-size:18px; margin:0}
+    .tag{font-size:12px; color:var(--muted)}
+
+    nav a{
+      color:var(--muted);
+      text-decoration:none;
+      margin-left:18px;
+      font-size:14px;
+    }
+
+    main{
+      display:grid;
+      grid-template-columns: 1fr 420px;
+      gap:28px;
+      align-items:start;
+    }
+
+    @media (max-width:900px){
+      main{grid-template-columns: 1fr; padding-bottom:20px}
+    }
+
+    .hero{
+      background: linear-gradient(180deg, rgba(255,255,255,0.9), var(--glass));
+      border-radius: var(--radius);
+      padding:28px;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(20,30,60,0.03);
+    }
+    .hero h2{margin:0 0 8px 0; font-size:26px}
+    .hero p{margin:0 0 18px 0; color:var(--muted); line-height:1.5}
+
+    .kpis{
+      display:flex;
+      gap:12px;
+      margin-top:8px;
+      flex-wrap:wrap;
+    }
+    .kpi{
+      background:linear-gradient(180deg,#fff, #fbfdff);
+      padding:12px 14px;
+      border-radius:12px;
+      box-shadow: 0 4px 12px rgba(12,20,40,0.04);
+      flex:1 1 120px;
+      min-width:120px;
+    }
+    .kpi b{display:block; font-size:16px}
+    .kpi small{color:var(--muted)}
+
+    .card{
+      background:var(--card);
+      border-radius:14px;
+      padding:18px;
+      box-shadow: var(--shadow);
+      border:1px solid rgba(20,30,60,0.035);
+    }
+
+    .illustr{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      height:220px;
+    }
+
+    .features{
+      margin-top:18px;
+      display:grid;
+      gap:12px;
+    }
+    .feature{
+      display:flex;
+      gap:12px;
+      align-items:flex-start;
+    }
+
+    .icon{
+      width:44px;
+      height:44px;
+      border-radius:10px;
+      background:linear-gradient(180deg, #f2f9ff, #ffffff);
+      display:grid;
+      place-items:center;
+      flex:0 0 44px;
+      box-shadow: 0 6px 14px rgba(40,90,200,0.04);
+    }
+
+    .aside{
+      position:sticky;
+      top:28px;
+      align-self:start;
+    }
+
+    .contact-title{font-size:16px; margin:0 0 8px 0}
+    .contact p{color:var(--muted); margin:0 0 12px 0}
+
+    .form-row{display:flex; gap:8px; margin-bottom:8px}
+    .input, textarea{
+      width:100%;
+      padding:10px 12px;
+      border-radius:10px;
+      border:1px solid rgba(12,20,40,0.06);
+      background:transparent;
+      font-size:14px;
+      color:#0f172a;
+    }
+    textarea{min-height:100px; resize:vertical}
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      background:linear-gradient(90deg,var(--accent),var(--accent-2));
+      color:white;
+      border:none;
+      padding:10px 14px;
+      border-radius:10px;
+      cursor:pointer;
+      font-weight:600;
+      box-shadow: 0 8px 22px rgba(43,124,255,0.14);
+    }
+    .btn:active{transform:translateY(1px)}
+    .muted{color:var(--muted); font-size:13px}
+
+    footer{
+      margin-top:28px;
+      text-align:center;
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    /* small decorative sinewave */
+    .sine{
+      width:100%;
+      height:72px;
+    }
+
+    /* accessibility focus */
+    a:focus, button:focus, input:focus, textarea:focus {outline:3px solid rgba(43,124,255,0.18); outline-offset:3px}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">CP</div>
+        <div>
+          <h1>[Twoja Firma] — Kompensacja mocy biernej</h1>
+          <div class="tag">Poprawa cosφ • Baterie kondensatorów • Kompensatory</div>
+        </div>
+      </div>
+      <nav aria-label="Nawigacja">
+        <a href="#rozwiązanie">Rozwiązanie</a>
+        <a href="#korzyści">Korzyści</a>
+        <a href="#kontakt">Kontakt</a>
+      </nav>
+    </header>
+
+    <main>
+      <!-- LEFT: content -->
+      <section>
+        <div class="hero card" role="region" aria-labelledby="hero-title">
+          <h2 id="hero-title">Kompensacja mocy biernej — prosto i efektywnie</h2>
+          <p>Projektujemy i dostarczamy systemy kompensacji mocy biernej: baterie kondensatorów oraz kompensatory statyczne (SVG). Zmniejszamy straty, poprawiamy współczynnik mocy i stabilizujemy zasilanie.</p>
+
+          <div class="kpis" aria-hidden="false">
+            <div class="kpi">
+              <b>≥0.95</b>
+              <small>Docelowy cosφ (typowo)</small>
+            </div>
+            <div class="kpi">
+              <b>30–70%</b>
+              <small>Redukcja kar za cosφ</small>
+            </div>
+            <div class="kpi">
+              <b>Modułowe</b>
+              <small>Baterie i SVG dopasowane do potrzeb</small>
+            </div>
+          </div>
+
+          <div class="features">
+            <div class="feature">
+              <div class="icon" aria-hidden="true">
+                <!-- capacitor bank icon -->
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <rect x="6" y="6" width="3" height="12" rx="1" fill="#2b7cff"></rect>
+                  <rect x="11" y="6" width="3" height="12" rx="1" fill="#00bfa6"></rect>
+                  <rect x="16" y="6" width="3" height="12" rx="1" fill="#2b7cff"></rect>
+                </svg>
+              </div>
+              <div>
+                <strong>Baterie kondensatorów</strong>
+                <div class="muted">Szybkie, ekonomiczne rozwiązanie dla stałych bądź przewidywalnych obciążeń.</div>
+              </div>
+            </div>
+
+            <div class="feature">
+              <div class="icon" aria-hidden="true">
+                <!-- SVG compensator icon -->
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M4 12h16" stroke="#2b7cff" stroke-width="2" stroke-linecap="round"/>
+                  <circle cx="12" cy="12" r="3" fill="#00bfa6"/>
+                </svg>
+              </div>
+              <div>
+                <strong>Kompensatory SVG</strong>
+                <div class="muted">Dynamiczna regulacja mocy biernej, bardzo szybka odpowiedź i precyzyjne sterowanie.</div>
+              </div>
+            </div>
+
+            <div class="feature">
+              <div class="icon" aria-hidden="true">
+                <!-- savings icon -->
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M12 2v4" stroke="#2b7cff" stroke-width="1.6" stroke-linecap="round"/>
+                  <path d="M8 6h8" stroke="#00bfa6" stroke-width="1.6" stroke-linecap="round"/>
+                  <circle cx="12" cy="14" r="6" stroke="#2b7cff" stroke-width="1.6" fill="none"/>
+                </svg>
+              </div>
+              <div>
+                <strong>Oszczędności i zgodność</strong>
+                <div class="muted">Zmniejszenie opłat za moc bierną, lepsza jakość energii, zgodność z normami.</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- simple illustrative SVG waveform -->
+          <div style="margin-top:18px">
+            <svg class="sine" viewBox="0 0 600 72" preserveAspectRatio="none" aria-hidden="true">
+              <defs>
+                <linearGradient id="g" x1="0" x2="1">
+                  <stop offset="0" stop-color="#2b7cff" stop-opacity="0.12"/>
+                  <stop offset="1" stop-color="#00bfa6" stop-opacity="0.06"/>
+                </linearGradient>
+              </defs>
+              <path d="M0 36 C60 8 120 64 180 36 C240 8 300 64 360 36 C420 8 480 64 540 36 C600 8 660 64 720 36" stroke="#2b7cff" stroke-width="2" fill="none" stroke-linecap="round" transform="scale(0.83,1)"></path>
+              <rect x="0" y="0" width="600" height="72" fill="url(#g)" opacity="0.06"></rect>
+            </svg>
+          </div>
+        </div>
+
+        <!-- technical summary -->
+        <div class="card" style="margin-top:18px">
+          <h3 style="margin:0 0 10px 0">Szybkie osiagnięcia</h3>
+          <ul style="margin:0 0 0 18px; color:var(--muted)">
+            <li>Analiza sieci i dobór mocy kondensatorów</li>
+            <li>Projekt kompensacji statycznej i dynamicznej (SVG)</li>
+            <li>Integracja z systemem monitoringu i PLC</li>
+            <li>Serwis i wymiana części zgodnie z normami</li>
+          </ul>
+        </div>
+
+      </section>
+
+      <!-- RIGHT: aside / contact -->
+      <aside class="aside">
+        <div class="card contact" id="kontakt" aria-labelledby="contact-heading">
+          <h3 id="contact-heading" class="contact-title">Skontaktuj się</h3>
+          <p>Opisz krótko potrzeby, a przygotujemy wstępną wycenę i plan działań.</p>
+
+          <label class="muted" for="name">Imię i nazwisko</label>
+          <input id="name" class="input" placeholder="Jan Kowalski" />
+
+          <label class="muted" for="email">Email</label>
+          <input id="email" class="input" placeholder="kontakt@firma.pl" />
+
+          <label class="muted" for="msg">Krótka wiadomość</label>
+          <textarea id="msg" placeholder="Napisz czego potrzebujesz (moc, typ zakłóceń, lokalizacja)"></textarea>
+
+          <div style="margin-top:10px; display:flex; gap:10px; align-items:center;">
+            <button id="send" class="btn" type="button" aria-label="Wyślij wiadomość">Wyślij wiadomość</button>
+            <div class="muted" style="font-size:13px">Lub <a href="mailto:kontakt@firma.pl">kontakt@firma.pl</a></div>
+          </div>
+
+          <hr style="margin:12px 0; border:none; border-top:1px solid rgba(12,20,40,0.04)">
+          <div style="font-size:13px; color:var(--muted)">
+            <strong>Telefon:</strong> <a href="tel:+48123456789">+48 123 456 789</a><br>
+            <strong>Adres:</strong> ul. Przykładowa 10, Warszawa
+          </div>
+        </div>
+
+        <div style="height:18px"></div>
+
+        <div class="card" aria-hidden="true">
+          <h4 style="margin:0 0 8px 0">Do pobrania</h4>
+          <div class="muted" style="font-size:13px">
+            PDF: <a href="#" onclick="alert('PDF z ofertą — dodaj link lub plik na serwerze')">Oferta kompensacji (przykład)</a>
+          </div>
+        </div>
+      </aside>
+    </main>
+
+    <footer>
+      © <span id="year"></span> [Twoja Firma] — Kompensacja mocy biernej • <span class="muted">Projekt i kontakt</span>
+    </footer>
+  </div>
+
+  <script>
+    // small JS: mailto builder + year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    function sendMail(){
+      const name = (document.getElementById('name').value || '').trim();
+      const email = (document.getElementById('email').value || '').trim();
+      const msg = (document.getElementById('msg').value || '').trim();
+
+      if(!email && !name && !msg){
+        alert('Proszę wypełnić co najmniej email lub wiadomość.');
+        return;
+      }
+
+      const subject = encodeURIComponent('Zapytanie: Kompensacja mocy biernej');
+      let body = '';
+      if(name) body += 'Imię i nazwisko: ' + name + '%0D%0A';
+      if(email) body += 'Email: ' + email + '%0D%0A';
+      if(msg) body += '%0D%0A' + msg + '%0D%0A';
+      body += '%0D%0AProszę o kontakt w sprawie kompensacji mocy biernej.';
+
+      // mailto link
+      const to = 'kontakt@firma.pl';
+      const mailto = 'mailto:' + to + '?subject=' + subject + '&body=' + body;
+      window.location.href = mailto;
+    }
+
+    document.getElementById('send').addEventListener('click', sendMail);
+  </script>
+</body>
+</html>
