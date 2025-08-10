@@ -67,4 +67,118 @@
     background-color: #fff;
     padding: 30px 20px;
     border-radius: 8px;
-    box-shadow: 0 8px 20
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    max-width: 600px;
+    margin: 0 auto 50px;
+  }
+  .contact-section h2 {
+    text-align: center;
+    color: #004d40;
+    margin-bottom: 20px;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  label {
+    margin-bottom: 6px;
+    font-weight: 600;
+    color: #004d40;
+  }
+  input, textarea {
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #bbb;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-family: inherit;
+    resize: vertical;
+  }
+  button {
+    background-color: #00796b;
+    color: white;
+    font-weight: 700;
+    border: none;
+    padding: 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease;
+  }
+  button:hover {
+    background-color: #004d40;
+  }
+  .contact-info {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 1.1rem;
+    color: #004d40;
+  }
+  .contact-info strong {
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  @media (max-width: 600px) {
+    header h1 {
+      font-size: 1.6rem;
+    }
+    .offer {
+      font-size: 1rem;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Nowoczesna Kompensacja Mocy Biernej</h1>
+  <p>Redukcja rachunków za energię elektryczną dzięki statycznym kompensatorom SVG i bateriom kondensatorów</p>
+</header>
+
+<main>
+
+  <section class="image-section">
+    <!-- Podmień link do obrazka na wycinek faktury -->
+    <img src="https://i.imgur.com/8bRlKzo.png" alt="Wycinek faktury za energię elektryczną pokazujący opłaty za moc bierną" />
+  </section>
+
+  <section class="offer">
+    <p><strong>Darmowa analiza Twojej faktury za energię elektryczną</strong> oraz <strong>wstępna konsultacja</strong> w celu zoptymalizowania kosztów wynikających z poboru mocy biernej indukcyjnej lub pojemnościowej.</p>
+  </section>
+
+  <section class="realizations">
+    <h2>Nasze realizacje</h2>
+    <ul>
+      <li>Obiekty przemysłowe</li>
+      <li>Zakłady produkcyjne</li>
+      <li>Hale sportowe</li>
+      <li>Magazyny</li>
+    </ul>
+  </section>
+
+  <section class="contact-section">
+    <h2>Kontakt</h2>
+    <div class="contact-info">
+      <strong>Telefon:</strong> +48 123 456 789<br />
+      <strong>Email:</strong> kontakt@twojadomena.pl
+    </div>
+
+    <form id="contactForm" action="#" method="POST">
+      <label for="name">Imię i nazwisko</label>
+      <input type="text" id="name" name="name" required placeholder="Twoje imię i nazwisko" />
+
+      <label for="email">Adres email</label>
+      <input type="email" id="email" name="email" required placeholder="Twój adres email" />
+
+      <label for="message">Wiadomość</label>
+      <textarea id="message" name="message" rows="5" required placeholder="Napisz do nas..."></textarea>
+
+      <button type="submit">Wyślij</button>
+    </form>
+  </section>
+
+</main>
+
+</body>
+</html>
