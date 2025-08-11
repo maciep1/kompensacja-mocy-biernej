@@ -1,184 +1,71 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Kompensacja mocy biernej - Nowoczesne rozwiązania</title>
-<style>
-  body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0; padding: 0;
-    background: #f7f9fc;
-    color: #222;
-  }
-  header {
-    background-color: #004d40;
-    color: #fff;
-    padding: 30px 20px;
-    text-align: center;
-  }
-  header h1 {
-    margin: 0;
-    font-weight: 700;
-    font-size: 2.2rem;
-  }
-  header p {
-    margin-top: 8px;
-    font-size: 1.1rem;
-    font-weight: 400;
-  }
-  main {
-    max-width: 960px;
-    margin: 30px auto;
-    padding: 0 15px;
-  }
-  .image-section {
-    text-align: center;
-    margin-bottom: 40px;
-  }
-  .image-section img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
-  }
-  .offer {
-    background-color: #e0f2f1;
-    padding: 25px 20px;
-    border-left: 6px solid #00796b;
-    margin-bottom: 40px;
-    font-size: 1.2rem;
-  }
-  .realizations {
-    margin-bottom: 40px;
-  }
-  .realizations h2 {
-    color: #004d40;
-    margin-bottom: 15px;
-  }
-  .realizations ul {
-    list-style-type: disc;
-    padding-left: 20px;
-  }
-  .realizations ul li {
-    margin-bottom: 8px;
-  }
-  .contact-section {
-    background-color: #fff;
-    padding: 30px 20px;
-    border-radius: 8px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-    max-width: 600px;
-    margin: 0 auto 50px;
-  }
-  .contact-section h2 {
-    text-align: center;
-    color: #004d40;
-    margin-bottom: 20px;
-  }
-  form {
-    display: flex;
-    flex-direction: column;
-  }
-  label {
-    margin-bottom: 6px;
-    font-weight: 600;
-    color: #004d40;
-  }
-  input, textarea {
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #bbb;
-    border-radius: 4px;
-    font-size: 1rem;
-    font-family: inherit;
-    resize: vertical;
-  }
-  button {
-    background-color: #00796b;
-    color: white;
-    font-weight: 700;
-    border: none;
-    padding: 12px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1.1rem;
-    transition: background-color 0.3s ease;
-  }
-  button:hover {
-    background-color: #004d40;
-  }
-  .contact-info {
-    text-align: center;
-    margin-bottom: 30px;
-    font-size: 1.1rem;
-    color: #004d40;
-  }
-  .contact-info strong {
-    display: block;
-    margin-bottom: 6px;
-  }
-
-  @media (max-width: 600px) {
-    header h1 {
-      font-size: 1.6rem;
-    }
-    .offer {
-      font-size: 1rem;
-    }
-  }
-</style>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Kompensacja Mocy Biernej – Nowoczesne Rozwiązania</title>
+  <style>
+    body { font-family: sans-serif; margin:0; background:#f4f6f8; color:#333; }
+    header { background:#005b43; color:#fff; text-align:center; padding:40px 20px; }
+    header h1 { margin:0; font-size:2.5rem; }
+    header p { margin-top:10px; font-size:1.2rem; }
+    main { max-width:900px; margin:40px auto; padding:0 20px; }
+    .benefits { display:grid; gap:20px; margin-top:30px; }
+    .benefit { background:#e0f2f1; padding:20px; border-left:4px solid #00796b; border-radius:4px; }
+    .benefit h3 { margin-top:0; color:#005b43; }
+    .invoices { margin:40px 0; }
+    .invoices img { width:100%; max-width:400px; border:1px solid #ccc; border-radius:4px; box-shadow:0 4px 12px rgba(0,0,0,0.1); margin-right:20px; }
+    .invoices .row { display:flex; flex-wrap:wrap; gap:20px; justify-content: center; }
+    .cta { text-align:center; margin:50px 0; }
+    .cta button { background:#00796b; color:#fff; border:none; padding:15px 30px; font-size:1.1rem; border-radius:5px; cursor:pointer; }
+    .cta button:hover { background:#005b43; }
+    footer { background:#ddd; text-align:center; padding:20px; font-size:0.9rem; color:#555; }
+    @media(max-width:600px){ .invoices .row { flex-direction:column; align-items:center; } }
+  </style>
 </head>
 <body>
 
 <header>
   <h1>Nowoczesna Kompensacja Mocy Biernej</h1>
-  <p>Redukcja rachunków za energię elektryczną dzięki statycznym kompensatorom SVG i bateriom kondensatorów</p>
+  <p>Redukujemy Twoje rachunki dzięki statycznym kompensatorom SVG oraz bateriom kondensatorów</p>
 </header>
 
 <main>
-
-  <section class="image-section">
-    <!-- Podmień link do obrazka na wycinek faktury -->
-    <img src="https://i.imgur.com/8bRlKzo.png" alt="Wycinek faktury za energię elektryczną pokazujący opłaty za moc bierną" />
+  <section class="benefits">
+    <div class="benefit"><h3>1. Obniżenie rachunków za energię</h3><p>Zoptymalizuj koszty mocy biernej indukcyjnej i pojemnościowej.</p></div>
+    <div class="benefit"><h3>2. Zautomatyzowany, bezobsługowy system</h3><p>Monitoring parametrów sieci i serwis w cenie.</p></div>
+    <div class="benefit"><h3>3. Szybki zwrot inwestycji</h3><p>Efektywność i oszczędności gwarantowane.</p></div>
+    <div class="benefit"><h3>4. Doświadczenie przemysłowe</h3><p>Obiekty przemysłowe, hale i magazyny — mamy wdrożenia.</p></div>
   </section>
 
-  <section class="offer">
-    <p><strong>Darmowa analiza Twojej faktury za energię elektryczną</strong> oraz <strong>wstępna konsultacja</strong> w celu zoptymalizowania kosztów wynikających z poboru mocy biernej indukcyjnej lub pojemnościowej.</p>
-  </section>
-
-  <section class="realizations">
-    <h2>Nasze realizacje</h2>
-    <ul>
-      <li>Obiekty przemysłowe</li>
-      <li>Zakłady produkcyjne</li>
-      <li>Hale sportowe</li>
-      <li>Magazyny</li>
-    </ul>
-  </section>
-
-  <section class="contact-section">
-    <h2>Kontakt</h2>
-    <div class="contact-info">
-      <strong>Telefon:</strong> +48 123 456 789<br />
-      <strong>Email:</strong> kontakt@twojadomena.pl
+  <section class="invoices">
+    <h2>Przykłady faktur z opłatami za moc bierną</h2>
+    <div class="row">
+      <!-- Zastąp src poniżej swoimi grafikami faktur -->
+      <img src="URL_DO_TWOJEJ_FAKTURY_1.jpg" alt="Faktura – energia bierna indukcyjna">
+      <img src="URL_DO_TWOJEJ_FAKTURY_2.jpg" alt="Faktura – energia bierna pojemnościowa">
     </div>
+  </section>
 
-    <form id="contactForm" action="#" method="POST">
-      <label for="name">Imię i nazwisko</label>
-      <input type="text" id="name" name="name" required placeholder="Twoje imię i nazwisko" />
+  <section class="cta">
+    <p>Wyślij nam kopię faktury – przeanalizujemy Twoje koszty i zaproponujemy rozwiązanie!</p>
+    <button onclick="window.location.href='#contact'">Prześlij fakturę</button>
+  </section>
 
-      <label for="email">Adres email</label>
-      <input type="email" id="email" name="email" required placeholder="Twój adres email" />
-
-      <label for="message">Wiadomość</label>
-      <textarea id="message" name="message" rows="5" required placeholder="Napisz do nas..."></textarea>
-
+  <section id="contact">
+    <h2>Kontakt / Formularz</h2>
+    <form action="https://formspree.io/f/twój_endpoint" method="POST">
+      <label>Imię i nazwisko:<br><input type="text" name="name" required></label><br><br>
+      <label>Email:<br><input type="email" name="_replyto" required></label><br><br>
+      <label>Wiadomość:<br><textarea name="message" rows="5" required>Pozdrawiamy, przesyłamy fakturę...</textarea></label><br><br>
       <button type="submit">Wyślij</button>
     </form>
   </section>
-
 </main>
+
+<footer>
+  &copy; 2025 Twoja Firma • Wszystkie prawa zastrzeżone.
+</footer>
 
 </body>
 </html>
