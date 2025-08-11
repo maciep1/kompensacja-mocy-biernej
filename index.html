@@ -14,7 +14,7 @@
     .benefit { background:#e0f2f1; padding:20px; border-left:4px solid #00796b; border-radius:4px; }
     .benefit h3 { margin-top:0; color:#005b43; }
     .invoices { margin:40px 0; }
-    .invoices img { width:100%; max-width:400px; border:1px solid #ccc; border-radius:4px; box-shadow:0 4px 12px rgba(0,0,0,0.1); margin-right:20px; }
+    .invoices img { width:100%; max-width:400px; border:1px solid #ccc; border-radius:4px; box-shadow:0 4px 12px rgba(0,0,0,0.1); }
     .invoices .row { display:flex; flex-wrap:wrap; gap:20px; justify-content: center; }
     .cta { text-align:center; margin:50px 0; }
     .cta button { background:#00796b; color:#fff; border:none; padding:15px 30px; font-size:1.1rem; border-radius:5px; cursor:pointer; }
@@ -41,9 +41,8 @@
   <section class="invoices">
     <h2>Przykłady faktur z opłatami za moc bierną</h2>
     <div class="row">
-      <!-- Zastąp src poniżej swoimi grafikami faktur -->
-      <img src="URL_DO_TWOJEJ_FAKTURY_1.jpg" alt="Faktura – energia bierna indukcyjna">
-      <img src="URL_DO_TWOJEJ_FAKTURY_2.jpg" alt="Faktura – energia bierna pojemnościowa">
+      <img src="FV1.png" alt="Faktura – energia bierna indukcyjna">
+      <img src="FV2.png" alt="Faktura – energia bierna pojemnościowa">
     </div>
   </section>
 
@@ -54,7 +53,7 @@
 
   <section id="contact">
     <h2>Kontakt / Formularz</h2>
-    <form action="https://formspree.io/f/twój_endpoint" method="POST">
+    <form action="https://formspree.io/f/twoj_endpoint" method="POST">
       <label>Imię i nazwisko:<br><input type="text" name="name" required></label><br><br>
       <label>Email:<br><input type="email" name="_replyto" required></label><br><br>
       <label>Wiadomość:<br><textarea name="message" rows="5" required>Pozdrawiamy, przesyłamy fakturę...</textarea></label><br><br>
