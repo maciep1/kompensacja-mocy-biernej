@@ -275,7 +275,7 @@
         </ul>
       </div>
 
-   <form action="https://getform.io/f/ayvepgeb" 
+   <form action="https://getform.io/f/ayvepgeb"
       method="POST" enctype="multipart/form-data">
   <label>Imię i nazwisko:
     <input type="text" name="name" required>
@@ -286,12 +286,18 @@
   </label>
 
   <label>Wiadomość:
-    <textarea name="message" rows="4">Proszę o analizę mojej faktury...</textarea>
+    <textarea name="message" rows="4" required>Proszę o analizę mojej faktury...</textarea>
   </label>
 
   <label>Załącz fakturę (PDF lub zdjęcie):
     <input type="file" name="faktura" accept="application/pdf,image/*" required>
   </label>
+
+  <!-- (opcjonalnie) strona z podziękowaniem -->
+  <input type="hidden" name="_redirect" value="https://maciep1.github.io/kompensacja-mocy-biernej/thank-you.html">
+
+  <!-- (opcjonalnie) honeypot anty-spam -->
+  <input type="text" name="_gotcha" style="display:none">
 
   <button type="submit">Wyślij</button>
 </form>
