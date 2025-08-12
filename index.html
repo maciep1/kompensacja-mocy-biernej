@@ -22,8 +22,7 @@
       font-family:'Inter',system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
       color:#243044;
     }
-
-    /* MOTYW „DEEP” (granat + turkus) */
+    /* MOTYW „DEEP” */
     body[data-theme="deep"]{
       --accent:#0e7490;
       --accent-dark:#0b4f60;
@@ -33,7 +32,7 @@
     }
 
     html,body{height:100%;}
-    body{margin:0;background:var(--bg);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}
+    body{margin:0;background:var(--bg);-webkit-font-smoothing:antialiased}
     .wrap{
       max-width:var(--max-width);
       margin:40px auto;
@@ -42,6 +41,7 @@
         radial-gradient(800px 300px at 20% 0%, rgba(14,116,144,.06), transparent 60%),
         radial-gradient(800px 300px at 80% 20%, rgba(20,40,60,.04), transparent 60%);
       border-radius:16px;
+      position:relative;
     }
 
     /* HERO */
@@ -50,10 +50,11 @@
       overflow:hidden;
       background:
         linear-gradient(180deg,rgba(255,255,255,0.65),rgba(255,255,255,0.65)),
-        url('./img/photo-hero.jpeg?v=5') center/cover no-repeat;
+        url('./img/photo-hero.jpeg?v=6') center/cover no-repeat;
       box-shadow:var(--shadow-strong);
       border:2px solid var(--line);
       display:grid;grid-template-columns:1fr 420px;align-items:stretch;
+      position:relative;
     }
     .hero .left{padding:36px 40px;background:linear-gradient(90deg,rgba(247,249,250,0.8),rgba(255,255,255,0.6));}
     .kicker{display:inline-block;font-weight:600;color:var(--accent-dark);background:var(--accent-soft);padding:6px 12px;border-radius:999px;font-size:.85rem;margin-bottom:16px;}
@@ -65,25 +66,51 @@
     .btn{display:inline-flex;gap:10px;align-items:center;text-decoration:none;background:var(--accent);color:#fff;padding:12px 18px;border-radius:10px;font-weight:600;box-shadow:0 6px 16px rgba(14,116,144,.18);transition:transform .15s ease, box-shadow .15s ease}
     .btn:hover{transform:translateY(-1px);box-shadow:0 10px 24px rgba(14,116,144,.22)}
     .btn.secondary{background:transparent;border:1.5px solid var(--line);color:var(--accent-dark);box-shadow:none}
-
     .hero .right{padding:22px;background:linear-gradient(180deg,rgba(250,252,253,0.75),rgba(255,255,255,0.6));display:flex;flex-direction:column;justify-content:center;gap:12px}
-    .texture{background-image:url('./img/FV1.png?v=5');background-size:cover;background-position:center;border-radius:10px;min-height:180px;box-shadow:inset 0 1px 0 rgba(255,255,255,0.6);border:1.5px solid var(--line)}
+    .texture{background-image:url('./img/FV1.png?v=6');background-size:cover;background-position:center;border-radius:10px;min-height:180px;box-shadow:inset 0 1px 0 rgba(255,255,255,0.6);border:1.5px solid var(--line)}
     .small-note{font-size:.86rem;color:var(--muted)}
-
-    /* FALA POD HERO */
     .wave{display:block;margin-top:-8px}
 
-    /* GRID KORZYŚCI */
+    /* HEADER – kontakt w prawym górnym rogu (czerwony) */
+    .contact-top{
+      position:absolute;top:14px;right:14px;z-index:5;
+      background:#fff5f5;border:2px solid #d60000;border-radius:12px;
+      padding:10px 14px;font-weight:800;color:#d60000;font-size:1rem;
+      box-shadow:0 10px 24px rgba(0,0,0,.06);
+    }
+    .contact-top a{color:#d60000;text-decoration:none}
+    .contact-top a:hover{text-decoration:underline}
+
+    /* BENEFITS */
     .benefits{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:28px}
     .card{background:var(--card);border-radius:14px;padding:20px;border:2px solid var(--line);box-shadow:var(--shadow)}
     .card h3{margin:0 0 8px;font-size:1.06rem;color:var(--accent-dark);display:flex;align-items:center;gap:10px}
     .card p{margin:0;color:var(--muted)}
 
-    /* GALERIA FAKTUR */
+    /* GALLERY */
     .gallery{margin-top:36px;display:grid;grid-template-columns:1fr 1fr;gap:18px}
     .invoice{background:linear-gradient(180deg,rgba(255,255,255,0.85),rgba(247,249,250,0.9));padding:14px;border-radius:14px;border:2px solid var(--line);box-shadow:var(--shadow)}
-    .invoice img{width:100%;height:100%;object-fit:contain;display:block;border-radius:8px}
+    .invoice img{width:100%;height:100%;object-fit:contain;display:block;border-radius:8px;cursor:zoom-in}
     .invoice .caption{font-size:.9rem;color:var(--muted);margin-top:10px}
+
+    /* LIGHTBOX (modal) */
+    .lightbox{
+      position:fixed;inset:0;background:rgba(0,0,0,.6);
+      display:none;align-items:center;justify-content:center;
+      z-index:2147483647;padding:20px;
+    }
+    .lightbox.open{display:flex}
+    .lightbox img{
+      max-width:min(1200px, 95vw);
+      max-height:90vh;
+      width:auto;height:auto;border-radius:12px;background:#fff;
+      box-shadow:0 20px 60px rgba(0,0,0,.35);
+    }
+    .lightbox .close{
+      position:absolute;top:16px;right:16px;background:#ffffff;
+      border:0;border-radius:999px;padding:10px 14px;font-weight:800;cursor:pointer;
+      box-shadow:0 10px 24px rgba(0,0,0,.15)
+    }
 
     /* FORMULARZ KONTAKTOWY */
     .contact{margin-top:26px;display:grid;grid-template-columns:1fr 360px;gap:20px}
@@ -94,17 +121,11 @@
     button[type='submit']{margin-top:12px;background:var(--accent);color:#fff;border:none;padding:12px 16px;border-radius:10px;cursor:pointer;font-weight:600;box-shadow:0 6px 16px rgba(14,116,144,.18)}
     button[type='submit']:hover{box-shadow:0 10px 22px rgba(14,116,144,.22)}
 
-    /* DUŻY PANEL KONTAKTOWY NA DOLE (czerwony, centralny) */
+    /* DUŻY CZERWONY PANEL KONTAKTOWY NA DOLE STRONY */
     .contact-big{
-      text-align:center;
-      font-size:2rem;
-      font-weight:800;
-      color:#d60000;              /* intensywny czerwony */
-      padding:30px 10px;
-      background:#fff5f5;         /* delikatne czerwone tło */
-      border-top:3px solid #d60000;
-      border-radius:12px;
-      margin:42px 0 0;
+      text-align:center;font-size:2rem;font-weight:800;color:#d60000;
+      padding:30px 10px;background:#fff5f5;border-top:3px solid #d60000;
+      border-radius:12px;margin:42px 0 0;
     }
     .contact-big a{color:#d60000;text-decoration:none}
     .contact-big a:hover{text-decoration:underline}
@@ -123,6 +144,7 @@
       .hero h1{font-size:1.6rem}
       .benefits{grid-template-columns:1fr}
       .contact-big{font-size:1.6rem}
+      .contact-top{font-size:.9rem}
     }
   </style>
 </head>
@@ -130,9 +152,15 @@
   <div class="wrap">
     <!-- HERO -->
     <header class="hero" role="banner">
+      <!-- kontakt w prawym górnym rogu -->
+      <div class="contact-top">
+        📞 <a href="tel:508681809">508 681 809</a> &nbsp; | &nbsp;
+        ✉️ <a href="mailto:kontakt@kompensacja-slask.pl">kontakt@kompensacja-slask.pl</a>
+      </div>
+
       <div class="left">
         <span class="kicker">Kompensacja mocy biernej</span>
-        <h1>Zmniejsz koszty energii i uniknij opłat za moc bierną</h1>
+        <h1>Zmniejsz koszty energii i uniknij kar za moc bierną</h1>
         <p class="lead">Projektujemy i wdrażamy systemy kompensacji — od analizy faktur po montaż i serwis. Rozwiązania dla przemysłu i obiektów wielkopowierzchniowych.</p>
 
         <div class="meta">
@@ -172,7 +200,6 @@
 
       <div class="card">
         <h3>
-          <!-- wykres w górę -->
           <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3v18h18" fill="none" stroke="currentColor" stroke-width="2"/><path d="M7 14l4-4 3 3 6-6" fill="none" stroke="currentColor" stroke-width="2"/></svg>
           Obniżenie rachunków
         </h3>
@@ -181,7 +208,6 @@
 
       <div class="card">
         <h3>
-          <!-- monitor/serce -->
           <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v10H4z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M6 10h3l2 3 2-6 2 3h3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 19h8" fill="none" stroke="currentColor" stroke-width="2"/></svg>
           Automatyka i monitoring
         </h3>
@@ -190,7 +216,6 @@
 
       <div class="card">
         <h3>
-          <!-- tarcza -->
           <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v6c0 5-3.5 8-7 9-3.5-1-7-4-7-9V6l7-3z" fill="none" stroke="currentColor" stroke-width="2"/></svg>
           Doświadczenie
         </h3>
@@ -199,7 +224,6 @@
 
       <div class="card">
         <h3>
-          <!-- błyskawica -->
           <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z" fill="none" stroke="currentColor" stroke-width="2"/></svg>
           Szybki zwrot
         </h3>
@@ -208,7 +232,6 @@
 
       <div class="card">
         <h3>
-          <!-- klucz serwis -->
           <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 7l-3-3-4 4 3 3 4-4zM3 21l8-8" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="7" cy="17" r="2" fill="none" stroke="currentColor" stroke-width="2"/></svg>
           Serwis i gwarancja
         </h3>
@@ -217,7 +240,6 @@
 
       <div class="card">
         <h3>
-          <!-- miarka/projekt -->
           <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h16v8H4z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 8v8M12 8v4M16 8v2" fill="none" stroke="currentColor" stroke-width="2"/></svg>
           Projekt skrojony na miarę
         </h3>
@@ -230,12 +252,12 @@
       <h2 id="gallery-title" style="grid-column:1/-1;margin:0;color:var(--accent-dark)">Przykłady faktur i zestawień</h2>
 
       <div class="invoice">
-        <img src="./img/FV1.png?v=5" alt="Faktura — opłaty za energię bierną (indukcyjna)">
+        <img class="zoomable" src="./img/FV1.png?v=6" data-full="./img/FV1.png?v=6" alt="Faktura — opłaty za energię bierną (indukcyjna)">
         <div class="caption">Fragment faktury z opłatami za moc bierną indukcyjną.</div>
       </div>
 
       <div class="invoice">
-        <img src="./img/FV2.png?v=5" alt="Faktura — opłaty za energię bierną (pojemnościowa)">
+        <img class="zoomable" src="./img/FV2.png?v=6" data-full="./img/FV2.png?v=6" alt="Faktura — opłaty za energię bierną (pojemnościowa)">
         <div class="caption">Fragment faktury z rozliczeniem energii biernej pojemnościowej.</div>
       </div>
     </section>
@@ -285,9 +307,43 @@
     </footer>
   </div>
 
+  <!-- LIGHTBOX -->
+  <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Podgląd faktury">
+    <button class="close" aria-label="Zamknij podgląd">&times;</button>
+    <img alt="Podgląd faktury">
+  </div>
+
   <script>
     // dynamiczny rok w stopce
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Lightbox: otwieranie/zamykanie
+    const lb = document.getElementById('lightbox');
+    const lbImg = lb.querySelector('img');
+    const closeBtn = lb.querySelector('.close');
+
+    function openLightbox(src){
+      lbImg.src = src;
+      lb.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLightbox(){
+      lb.classList.remove('open');
+      lbImg.removeAttribute('src');
+      document.body.style.overflow = '';
+    }
+
+    document.querySelectorAll('.zoomable').forEach(img=>{
+      img.addEventListener('click', ()=>{
+        const full = img.getAttribute('data-full') || img.src;
+        openLightbox(full);
+      });
+    });
+    lb.addEventListener('click', (e)=>{
+      if(e.target === lb) closeLightbox();
+    });
+    closeBtn.addEventListener('click', closeLightbox);
+    document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') closeLightbox(); });
   </script>
 </body>
 </html>
