@@ -32,7 +32,7 @@
       overflow:hidden;
       background:
         linear-gradient(180deg,rgba(255,255,255,0.65),rgba(255,255,255,0.65)),
-        url('img/photo-hero.jpeg') center/cover no-repeat;
+        url('./img/photo-hero.jpeg?v=3') center/cover no-repeat;
       box-shadow:var(--shadow);
       display:grid;grid-template-columns:1fr 420px;align-items:stretch;
     }
@@ -47,7 +47,7 @@
     .btn.secondary{background:transparent;border:1px solid var(--line);color:var(--accent-dark);}
 
     .hero .right{padding:22px;background:linear-gradient(180deg,rgba(250,252,253,0.75),rgba(255,255,255,0.6));display:flex;flex-direction:column;justify-content:center;gap:12px}
-    .texture{background-image:url('img/FV1.png');background-size:cover;background-position:center;border-radius:10px;min-height:160px;box-shadow:inset 0 1px 0 rgba(255,255,255,0.6);border:1px solid var(--line)}
+    .texture{background-image:url('./img/FV1.png?v=3');background-size:cover;background-position:center;border-radius:10px;min-height:160px;box-shadow:inset 0 1px 0 rgba(255,255,255,0.6);border:1px solid var(--line)}
     .small-note{font-size:.86rem;color:var(--muted)}
 
     /* GRID KORZYŚCI */
@@ -61,9 +61,6 @@
     .invoice{background:linear-gradient(180deg,rgba(255,255,255,0.8),rgba(247,249,250,0.85));padding:14px;border-radius:12px;border:1px solid var(--line);box-shadow:0 6px 18px rgba(30,50,70,0.04)}
     .invoice img{width:100%;height:100%;object-fit:contain;display:block;border-radius:8px}
     .invoice .caption{font-size:.9rem;color:var(--muted);margin-top:10px}
-
-    /* PAS TEKSTUR (FV2) */
-    .texture-strip{margin:36px 0;border-radius:10px;padding:24px;background-image:url('img/FV2.png');background-size:1200px;background-repeat:repeat;background-position:center;opacity:.45}
 
     /* FORMULARZ KONTAKTOWY */
     .contact{margin-top:26px;display:grid;grid-template-columns:1fr 360px;gap:20px}
@@ -151,18 +148,17 @@
       <h2 id="gallery-title" style="grid-column:1/-1;margin:0;color:var(--accent-dark)">Przykłady faktur i zestawień</h2>
 
       <div class="invoice">
-        <img src="img/FV1.png" alt="Faktura — opłaty za energię bierną (indukcyjna)">
+        <img src="./img/FV1.png?v=3" alt="Faktura — opłaty za energię bierną (indukcyjna)">
         <div class="caption">Fragment faktury z opłatami za moc bierną indukcyjną.</div>
       </div>
 
       <div class="invoice">
-        <img src="img/FV2.png" alt="Faktura — opłaty za energię bierną (pojemnościowa)">
+        <img src="./img/FV2.png?v=3" alt="Faktura — opłaty za energię bierną (pojemnościowa)">
         <div class="caption">Fragment faktury z rozliczeniem energii biernej pojemnościowej.</div>
       </div>
     </section>
 
-    <!-- PAS TEKSTUR -->
-    <div class="texture-strip" aria-hidden="true"></div>
+    <!-- (USUNIĘTO: PAS TEKSTUR / texture-strip) -->
 
     <!-- FORMULARZ KONTAKTOWY -->
     <section id="contact" class="contact" aria-labelledby="contact-title">
@@ -213,18 +209,6 @@
     // dynamiczny rok w stopce
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
-<footer style="margin-top:40px; text-align:center; color:#555; font-size:0.9rem; background:#f0f2f5; padding:20px;">
-  <div>
-    📞 <a href="tel:508681809" style="color:#2b6ea3; text-decoration:none;">508 681 809</a><br>
-    ✉️ <a href="mailto:kontakt@kompensacja-slask.pl" style="color:#2b6ea3; text-decoration:none;">kontakt@kompensacja-slask.pl</a>
-  </div>
-  <div style="margin-top:10px; font-size:0.8rem; color:#888;">
-    &copy; <span id="year"></span> Twoja Firma — Wszystkie prawa zastrzeżone
-  </div>
-</footer>
-
-<script>
-  document.getElementById('year').textContent = new Date().getFullYear();
-</script>
 </body>
 </html>
+
