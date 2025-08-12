@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <title>Dziękujemy za przesłanie formularza</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f7f9fb;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      background: white;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      max-width: 480px;
+      text-align: center;
+    }
+    h1 {
+      color: #0e7490;
+      margin-bottom: 16px;
+    }
+    p {
+      color: #444;
+    }
+    a {
+      display: inline-block;
+      margin-top: 20px;
+      text-decoration: none;
+      background: #0e7490;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 8px;
+    }
+    a:hover {
+      background: #0b4f60;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Dziękujemy!</h1>
+    <p>Twój formularz został wysłany pomyślnie. Odpowiemy w ciągu 24h.</p>
+    <a href="index.html">⬅ Powrót na stronę główną</a>
+  </div>
+</body>
+</html>
