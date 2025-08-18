@@ -214,19 +214,57 @@
     </section>
 
     <!-- GALERIA FAKTUR -->
-    <section id="gallery" class="gallery" aria-labelledby="gallery-title">
-      <h2 id="gallery-title" style="grid-column:1/-1;margin:0;color:var(--accent-dark)">Przykłady faktur i zestawień</h2>
+ <!-- GALERIA FAKTUR -->
+<section id="gallery" class="gallery" aria-labelledby="gallery-title">
+  <h2 id="gallery-title" style="grid-column:1/-1;margin:0;color:var(--accent-dark)">
+    Przykłady faktur i zestawień
+  </h2>
 
-      <div class="invoice">
-        <img class="zoomable" src="./img/FV1.png?v=6" data-full="./img/FV1.png?v=6" alt="Faktura — opłaty za energię bierną (indukcyjna)">
-        <div class="caption">Fragment faktury z opłatami za moc bierną pojemnościową.</div>
-      </div>
+  <div class="invoice">
+    <img class="zoomable" src="./img/FV1.png?v=6" data-full="./img/FV1.png?v=6"
+         alt="Faktura — opłaty za energię bierną (indukcyjna)">
+    <p class="caption">Fragment faktury z opłatami za moc bierną pojemnościową.</p>
+  </div>
 
-      <div class="invoice">
-        <img class="zoomable" src="./img/FV2.png?v=6" data-full="./img/FV2.png?v=6" alt="Faktura — opłaty za energię bierną (pojemnościowa)">
-        <div class="caption">>Fragment faktury z opłatami za moc bierną indukcyjną.</div>
-      </div>
-    </section>
+  <div class="invoice">
+    <img class="zoomable" src="./img/FV2.png?v=6" data-full="./img/FV2.png?v=6"
+         alt="Faktura — opłaty za energię bierną (pojemnościowa)">
+    <p class="caption">Fragment faktury z opłatami za moc bierną indukcyjną.</p>
+  </div>
+</section>
+
+<style>
+  .gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin: 40px 0; /* większy odstęp nad i pod galerią */
+  }
+
+  .invoice {
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 12px;
+    background: #fff;
+    max-width: 320px;
+    text-align: center;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  }
+
+  .invoice img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .invoice .caption {
+    font-size: 14px;
+    color: #555;
+    margin-top: 8px;
+  }
+</style>
 
     <!-- FORMULARZ KONTAKTOWY -->
  <style>
