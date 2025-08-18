@@ -217,7 +217,7 @@
  <!-- GALERIA FAKTUR -->
 <!-- GALERIA FAKTUR -->
 <section id="gallery" aria-labelledby="gallery-title">
-  <h2 id="gallery-title" style="margin:0;color:var(--accent-dark)">
+  <h2 id="gallery-title" style="margin:0 0 20px;color:var(--accent-dark)">
     Przykłady faktur i zestawień
   </h2>
 
@@ -235,6 +235,43 @@
     </div>
   </div>
 </section>
+
+<style>
+  /* kontener na faktury */
+  .gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin: 20px 0;
+  }
+
+  /* pudełko na pojedynczą fakturę */
+  .invoice {
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 12px;
+    background: #fff;
+    max-width: 320px;
+    text-align: center;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;  /* ustawienie pionowe: obrazek nad podpisem */
+    align-items: center;
+  }
+
+  .invoice img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .invoice .caption {
+    font-size: 14px;
+    color: #555;
+    margin-top: 8px;
+  }
+</style>
 
     <!-- FORMULARZ KONTAKTOWY -->
  <style>
