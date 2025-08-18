@@ -214,7 +214,6 @@
     </section>
 
     <!-- GALERIA FAKTUR -->
- <!-- GALERIA FAKTUR -->
 <!-- GALERIA FAKTUR -->
 <section id="gallery" aria-labelledby="gallery-title">
   <h2 id="gallery-title" style="margin:0 0 20px;color:var(--accent-dark)">
@@ -233,35 +232,39 @@
            alt="Faktura — opłaty za energię bierną (pojemnościowa)">
       <p class="caption">Fragment faktury z opłatami za moc bierną indukcyjną.</p>
     </div>
+
+    <div class="invoice">
+      <img class="zoomable" src="./img/FV3.png?v=6" data-full="./img/FV3.png?v=6"
+           alt="Faktura — oszczędności po kompensacji">
+      <p class="caption">Fragment faktury pokazujący oszczędności po kompensacji.</p>
+    </div>
   </div>
 </section>
 
 <style>
-  /* kontener na faktury */
+  /* cała sekcja galerii */
   .gallery {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
-    justify-content: center;
     margin: 20px 0;
   }
 
-  /* pudełko na pojedynczą fakturę */
+  /* każda faktura w ramce */
   .invoice {
     border: 1px solid #ccc;
     border-radius: 6px;
     padding: 12px;
     background: #fff;
-    max-width: 320px;
     text-align: center;
     box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     display: flex;
-    flex-direction: column;  /* ustawienie pionowe: obrazek nad podpisem */
+    flex-direction: column;
     align-items: center;
   }
 
   .invoice img {
-    max-width: 100%;
+    width: 100%;   /* zdjęcie wypełnia całą szerokość kolumny */
     height: auto;
     display: block;
   }
