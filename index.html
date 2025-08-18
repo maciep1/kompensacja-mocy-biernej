@@ -229,36 +229,106 @@
     </section>
 
     <!-- FORMULARZ KONTAKTOWY -->
-    <section id="contact" class="contact" aria-labelledby="contact-title">
-      <div class="info">
-        <h2 id="contact-title" style="margin-top:0; color:#0e7490; font-size:1.5rem; text-align:center;">📩 Chcesz analizę faktury?</h2>
-        <p style="color:#333; text-align:center;">Prześlij skan faktury lub PDF — przygotujemy bezpłatną analizę i propozycję technologii kompensacji.</p>
+ <section id="formularz">
+  <form action="https://getform.io/f/ayvepgeb" method="POST" enctype="multipart/form-data">
+    <!-- Dane kontaktowe -->
+    <div class="row">
+      <label>Imię i nazwisko<br>
+        <input type="text" name="name" required>
+      </label>
+    </div>
+
+    <div class="row">
+      <label>Adres e-mail<br>
+        <input type="email" name="email" required>
+      </label>
+    </div>
+
+    <div class="row">
+      <label>Wiadomość<br>
+        <textarea name="message" rows="4" placeholder="Napisz wiadomość..." required></textarea>
+      </label>
+    </div>
+
+    <!-- Załączniki (do 3 plików) -->
+    <div class="row">
+      <strong>Załączniki (max 3 pliki)</strong>
+      <div id="files-container">
+        <input type="file" name="files[]" accept="application/pdf,image/*">
       </div>
+      <div class="hint">Możesz dodać PDF/JPG/PNG. Każdy do 5 MB.</div>
 
-      <form action="https://getform.io/f/ayvepgeb" method="POST" enctype="multipart/form-data">
-        <input type="file" name="files[]" multiple>
-        <label>Imię i nazwisko:
-          <input type="text" name="name" required>
-        </label>
+      <div class="buttons">
+        <button type="button" id="add-file-btn">➕ Dodaj kolejny plik</button>
+        <button type="button" id="remove-file-btn">➖ Usuń ostatni</button>
+      </div>
+    </div>
 
-        <label>Adres e-mail:
-          <input type="email" name="email" required>
-        </label>
+    <!-- (Opcjonalnie) Prosta zapora anty-spam -->
+    <input type="text" name="website" style="display:none" tabindex="-1" autocomplete="off">
 
-        <label>Wiadomość:
-          <textarea name="message" rows="4" required>Proszę o analizę mojej faktury...</textarea>
-        </label>
+    <div class="row">
+      <button type="submit">Wyślij</button>
+    </div>
+  </form>
 
-        <label>Załącz fakturę (PDF lub zdjęcie):
-          <input type="file" name="faktura" accept="application/pdf,image/*" required>
-        </label>
+  <style>
+    #formularz .row { margin: 12px 0; }
+    #formularz input[type="text"],
+    #formularz input[type="email"],
+    #formularz textarea { width: 100%; max-width: 520px; }
+    #formularz .hint { font-size: 12px; color: #666; margin-top: 6px; }
+    #formularz .buttons button { margin-right: 8px; cursor: pointer; }
+  </style>
 
-        <input type="hidden" name="_redirect" value="https://maciep1.github.io/kompensacja-mocy-biernej/thank-you.html">
-        <input type="text" name="_gotcha" style="display:none">
+  <script>
+    (function () {
+      const container = document.getElementById('files-container');
+      const addBtn = document.getElementById('add-file-btn');
+      const removeBtn = document.getElementById('remove-file-btn');
 
-        <button type="submit">Wyślij</button>
-      </form>
-    </section>
+      const MAX_INPUTS = 3;     // maksymalnie 3 pola plików
+      const MAX_SIZE = 5 * 1024 * 1024; // 5 MB na plik (dostosuj do planu)
+
+      // dodawanie kolejnego pola pliku
+      addBtn.addEventListener('click', function () {
+        const count = container.querySelectorAll('input[type="file"]').length;
+        if (count >= MAX_INPUTS) return;
+
+        const br = document.createElement('br');
+        const input = document.createElement('input');
+        input.type = 'file';
+        input.name = 'files[]';
+        input.setAttribute('accept', 'application/pdf,image/*');
+        container.appendChild(br);
+        container.appendChild(input);
+      });
+
+      // usuwanie ostatniego pola (zostaw przynajmniej jedno)
+      removeBtn.addEventListener('click', function () {
+        const inputs = container.querySelectorAll('input[type="file"]');
+        if (inputs.length <= 1) return;
+        const last = inputs[inputs.length - 1];
+        const prev = last.previousSibling;
+        if (prev && prev.nodeName === 'BR') container.removeChild(prev);
+        container.removeChild(last);
+      });
+
+      // prosta walidacja rozmiaru (na submit)
+      const form = container.closest('form');
+      form.addEventListener('submit', function (e) {
+        const inputs = container.querySelectorAll('input[type="file"]');
+        for (const input of inputs) {
+          if (input.files && input.files[0] && input.files[0].size > MAX_SIZE) {
+            e.preventDefault();
+            alert('Plik "' + input.files[0].name + '" jest większy niż 5 MB.');
+            return false;
+          }
+        }
+      });
+    })();
+  </script>
+</section>
 
     <!-- DUŻY CZERWONY PANEL KONTAKTOWY NA DOLE STRONY -->
     <section class="contact-big">
